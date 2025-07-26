@@ -1,38 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stacking rectangles</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stacking rectangles with code reveal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background-color: #f3f3f3;
+      font-family: sans-serif;
+    }
+
+    .instruction {
+      margin-top: 40px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .container img {
+      width: 200px;
+      cursor: pointer;
+    }
+
+    .sq1, .sq2, .sq3 {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      opacity: 0;
+      transition: all 0.4s ease;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .sq3 {
+      width: 199px;
+      aspect-ratio: 2.53 / 0.9;
+      background: #5528a5;
+      top: 120%;
+    }
+
+    .sq2 {
+      width: 241px;
+      aspect-ratio: 2.53 / 0.9;
+      background: #6855bf;
+      top: 140%;
+    }
+
+    .sq1 {
+      width: 278px;
+      aspect-ratio: 2.53 / 1;
+      background: #9e8dec;
+      top: 165%;
+    }
+
+    .wrapper:hover .sq1,
+    .wrapper:hover .sq2,
+    .wrapper:hover .sq3 {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .code-wrapper {
+      margin-top: 300px;
+      width: 90%;
+      max-width: 700px;
+      background: #1e1e1e;
+      color: #dcdcdc;
+      font-family: monospace;
+      font-size: 14px;
+      border-radius: 8px;
+      padding: 0 1rem;
+      white-space: pre;
+      overflow-x: auto;
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.8s ease 0.6s, max-height 0.8s ease 0.6s, padding 0.3s ease 0.6s;
+      box-sizing: border-box;
+    }
+
+    .wrapper:hover .code-wrapper {
+      opacity: 1;
+      max-height: 1000px;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="sq3"></div>
-<div class="sq2"></div>
-<div class="sq1"></div>
-<style>
+
+  <!-- Instruction -->
+  <div class="instruction">👆 Hover on the image below to reveal stacked rectangles and code!</div>
+
+  <!-- Parent wrapper applies hover effect to all children -->
+  <div class="wrapper">
+    <div class="container">
+      <img src="battle2.png" alt="Hoverable Image">
+      <div class="sq3">Level 1</div>
+      <div class="sq2">Level 2</div>
+      <div class="sq1">Level 3</div>
+    </div>
+
+    <!-- Code appears last -->
+    <div class="code-wrapper">
+&lt;div class="sq3"&gt;&lt;/div&gt;
+&lt;div class="sq2"&gt;&lt;/div&gt;
+&lt;div class="sq1"&gt;&lt;/div&gt;
+&lt;style&gt;
   body{
     position: relative;
   }
-.sq3{
-  position: absolute;
-  width: 199px;
-  aspect-ratio: 2.53/0.9;
-  left: 24%;
-  top: 22%;
-  border-radius: 10px;
-  background: #5528a5;
-}
+  .sq3{
+    position: absolute;
+    width: 199px;
+    aspect-ratio: 2.53/0.9;
+    left: 24%;
+    top: 22%;
+    border-radius: 10px;
+    background: #5528a5;
+  }
 
-.sq2 {
-  position: absolute;
-  width: 241px;
-  aspect-ratio: 2.53/0.9;
-  left: 19%;
-  top: 36%;
-  border-radius: 10px;
-  background: #6855bf;
-}
-.sq1 {
+  .sq2 {
+    position: absolute;
+    width: 241px;
+    aspect-ratio: 2.53/0.9;
+    left: 19%;
+    top: 36%;
+    border-radius: 10px;
+    background: #6855bf;
+  }
+
+  .sq1 {
     position: absolute;
     width: 278px;
     aspect-ratio: 2.53/1;
@@ -41,9 +161,9 @@
     border-radius: 10px;
     background: #9e8dec;
   }
+&lt;/style&gt;
+    </div>
+  </div>
 
-  
-
-</style>
 </body>
 </html>
